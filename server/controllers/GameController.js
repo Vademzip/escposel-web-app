@@ -86,13 +86,13 @@ class GameController {
         }
     }
 
-    async getAllTeamGames(req, res) {
+    async getAllTeamGames(req, res, next) {
         try {
             const id = req.params.id
             if (!id) {
                 throw ApiError.BadRequest('Отсутствует ID команды')
             }
-            const {team, games} = GameService.getAllTeamGames(id)
+            const {team, games} = await GameService.getAllTeamGames(id)
             return res.json({
                 team,
                 games

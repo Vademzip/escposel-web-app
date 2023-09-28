@@ -6,7 +6,7 @@ class GameService {
     const link = `${API_URL}/api/game/get-all-games-info` + (page && size ? `?page=${page}&size=${size}&officialGameOnly=${isOnlyOfficialGame}` : '')
     return await fetch(link, {
       next: {
-        revalidate: 3600
+        revalidate: 7200
       }
     }).then((res) => res.json())
   }

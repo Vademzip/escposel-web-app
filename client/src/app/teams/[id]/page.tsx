@@ -7,10 +7,9 @@ import Link from "next/link";
 const TeamHistoryGame: FC<IProps> = async ({params}) => {
 
   const games: IGetTeamGames = await GameService.getOneTeamGames(params.id)
-
   return (
     <div>
-      {games && games.games.length > 0
+      {Object.keys(games).length > 0
         ? (
           <div>
             <div className={'text-center text-3xl mb-10'}>История игр с {games.team.name}</div>

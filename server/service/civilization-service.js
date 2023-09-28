@@ -29,7 +29,6 @@ class CivilizationService {
             ],
         })
         const civilizationFullInfo = []
-
         for (let civilization of civilizationList) {
             if (civilization.wins === 0) {
                 civilizationFullInfo.push({
