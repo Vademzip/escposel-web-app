@@ -53,11 +53,17 @@ class PlayerController {
             if ('officialGameOnly' in req.query) {
                 officialGameOnly = req.query['officialGameOnly'] === 'true'
             }
-            const {player, gameHistory, civilizationArray} = await PlayerService.getOnePlayerInfo(id,officialGameOnly)
+            const {
+                player,
+                gameHistory,
+                civilizationArray,
+                mapsArray
+            } = await PlayerService.getOnePlayerInfo(id, officialGameOnly)
             return res.json({
                 player,
                 gameHistory,
-                civilizationsTop: civilizationArray.slice(0, 3)
+                civilizationsTop: civilizationArray.slice(0, 3),
+                mapsArray
             })
         } catch (e) {
             next(e)

@@ -59,6 +59,25 @@ const Page: FC<IProps> = async ({params, searchParams}) => {
               </div>
             </div>
           </div>
+          {/*<div className={'flex flex-col gap-y-3 lg:flex-row gap-x-10 mt-10 lg:w-900p mx-auto justify-center'}>*/}
+          {/*  <div className={'border rounded-md p-5 relative lg:w-[400px]'}>*/}
+          {/*    <div className={'text-2xl text-center'}>Статистика по картам</div>*/}
+          {/*    <div className={''}>*/}
+          {/*      <div className={'gap-y-2 flex flex-col'}>*/}
+          {/*        {player.mapsArray.map((map) => (*/}
+          {/*          <div key={`player_map_${map.name}`} className={'flex items-center justify-between'}>*/}
+          {/*            <div className={'basis-1/6'}><img className={'rounded-full'} src={`${PUBLIC_API_URL}/${map.icon}`}*/}
+          {/*                                              width={64}*/}
+          {/*                                              height={64} alt=""/></div>*/}
+          {/*            <div className={'basis-3/6 text-center'}>{map.name}</div>*/}
+          {/*            <div*/}
+          {/*              className={'basis-1/6 whitespace-nowrap text-center'}>{map.wins} / {map.games}</div>*/}
+          {/*          </div>*/}
+          {/*        ))}*/}
+          {/*      </div>*/}
+          {/*    </div>*/}
+          {/*  </div>*/}
+          {/*</div>*/}
           <div>
             <div className={'mx-auto text-center mt-10 text-xl'}>История игр</div>
             <div className={'flex lg:w-900p mx-auto justify-center lg:justify-start text-center mb-4'}><GameOptions/>

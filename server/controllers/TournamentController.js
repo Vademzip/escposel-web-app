@@ -44,7 +44,7 @@ class TournamentController {
                 }],
                 order: [
                     ['wins', 'DESC'],
-                    ['games', 'DESC'],
+                    ['games', 'ASC'],
                 ]
             },
         )

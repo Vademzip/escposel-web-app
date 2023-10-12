@@ -164,6 +164,9 @@ class GameService {
     async getAllTeamGames(id) {
         const games = await Game.findAll({
             where: {TeamId: id},
+            order: [
+              ['date', 'DESC']
+            ],
             include: {
                 model: Tournament,
                 attributes: ['name']

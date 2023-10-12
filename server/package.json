@@ -1,7 +1,7 @@
 {
   "name": "escape-posel-official-site-server",
-  "version": "1.8.3",
-  "description": "Server part for escPosel Web app",
+  "version": "1.0.0",
+  "description": "Site for Civ VI team called Escape Posel",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",

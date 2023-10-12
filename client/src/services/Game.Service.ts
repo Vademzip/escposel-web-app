@@ -3,7 +3,7 @@ import $api, {API_URL, PUBLIC_API_URL} from "@/http";
 
 class GameService {
   async getGames(page?: string, size?: number, isOnlyOfficialGame? : boolean) {
-    const link = `${API_URL}/api/game/get-all-games-info` + (page && size ? `?page=${page}&size=${size}&officialGameOnly=${isOnlyOfficialGame}` : '')
+    const link = `${PUBLIC_API_URL}/api/game/get-all-games-info` + (page && size ? `?page=${page}&size=${size}&officialGameOnly=${isOnlyOfficialGame}` : '')
     return await fetch(link, {
       next: {
         revalidate: 7200

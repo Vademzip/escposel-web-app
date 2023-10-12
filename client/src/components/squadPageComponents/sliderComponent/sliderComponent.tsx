@@ -29,7 +29,7 @@ export default function SliderItems() {
       slidesPerView={6}
       spaceBetween={20}
       initialSlide={4}
-      onSwiper={(swiper) => swiper.activeIndex = 6}
+      onSwiper={(swiper) => swiper.activeIndex = 4}
       breakpoints={{
         0: {
           slidesPerView: 1,
@@ -72,13 +72,13 @@ export default function SliderItems() {
           <div className={'absolute bottom-0 w-full text-center text-xl bg-black/50'}>Dart</div>
         </Link>
       </SwiperSlide>
-      <SwiperSlide>
+      {/*<SwiperSlide>
         <Link href={'/player/20'} className={'h-340p phone:w-64 relative cursor-pointer flex align-bottom'}>
           <Image className={'hover:bg-gradient-to-br from-[#0f969c3b] to-[#6da5c000] object-contain'} src={Hungary}
                  alt=""/>
           <div className={'absolute bottom-0 w-full text-center text-xl bg-black/50'}>PandaV666</div>
         </Link>
-      </SwiperSlide>
+      </SwiperSlide>*/}
       <SwiperSlide>
         <Link href={'/player/10'} className={'h-340p phone:w-64 relative cursor-pointer flex align-bottom'}>
           <Image className={'hover:bg-gradient-to-br from-[#0f969c3b] to-[#6da5c000] object-contain'} src={Cyrus}
@@ -93,13 +93,13 @@ export default function SliderItems() {
           <div className={'absolute bottom-0 w-full text-center text-xl bg-black/50'}>StopIt</div>
         </Link>
       </SwiperSlide>
-      <SwiperSlide>
+      {/*<SwiperSlide>
         <Link href={'/player/21'} className={'h-340p phone:w-64 relative cursor-pointer flex align-bottom'}>
           <Image className={'hover:bg-gradient-to-br from-[#0f969c3b] to-[#6da5c000] object-contain phone:object-cover'} src={Montezuma}
                  alt=""/>
           <div className={'absolute bottom-0 w-full text-center text-xl bg-black/50'}>TaDpole</div>
         </Link>
-      </SwiperSlide>
+      </SwiperSlide>*/}
       <SwiperSlide>
         <Link href={'/player/13'} className={'h-340p phone:w-64 relative cursor-pointer flex align-bottom'}>
           <Image className={'hover:bg-gradient-to-br from-[#0f969c3b] to-[#6da5c000] object-contain'} src={Victoria}

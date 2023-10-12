@@ -12,9 +12,10 @@ const Login = () => {
   const {isUserAuth, setError} = useContext(Context)
 
   useEffect(() => {
-    if (isUserAuth)
+    if (isUserAuth){
       setError('Вы уже авторизованы!')
       router.push('/')
+    }
   })
 
   const {

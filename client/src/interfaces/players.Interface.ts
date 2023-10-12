@@ -34,7 +34,8 @@ export interface IFullPlayerInfoWithError {
 export interface IFullPlayerInfo {
     player : IPlayerResponse,
     gameHistory : IFullGameInfo[]
-    civilizationsTop : ICivilizationTopItem[]
+    civilizationsTop : ICivilizationTopItem[],
+    mapsArray : ICivilizationTopItem[]
 }
 
 export interface ICivilizationTopItem{

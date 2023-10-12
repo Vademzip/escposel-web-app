@@ -1,4 +1,4 @@
-const {Player, Game, Team, Tournament, Civilization, OneGameInfo} = require("../models/models");
+const {Player, Game, Team, Tournament, Civilization, OneGameInfo, Map} = require("../models/models");
 const ApiError = require("../exceptions/api-error");
 
 class PlayerService {
@@ -13,6 +13,7 @@ class PlayerService {
 
     async getOnePlayerInfo(id, officialGameOnly) {
         const civilizationStats = {};
+        const mapsStats = {};
         const whereClause = officialGameOnly
             ? [
                 {
@@ -26,6 +27,10 @@ class PlayerService {
                         {
                             model: Tournament,
                             attributes: ['id']
+                        },
+                        {
+                            model: Map,
+                            attributes: ['name', 'icon']
                         }
                     ]
                 },
@@ -42,6 +47,10 @@ class PlayerService {
                         {
                             model: Team,
                             attributes: ['name']
+                        },
+                        {
+                            model: Map,
+                            attributes: ['name', 'icon']
                         }
                     ]
                 },
@@ -55,7 +64,7 @@ class PlayerService {
             where: {id}
         })
         if (!player) {
-            throw new ApiError.BadRequest('Данного игрока не существует')//TODO
+            throw ApiError.BadRequest('Данного игрока не существует')//TODO
         }
         let gameHistory = await OneGameInfo.findAll(
             {
@@ -70,6 +79,7 @@ class PlayerService {
 
         for (const game of gameHistory) {
             const civilizationName = game.Civilization.name;
+            const mapName = game.Game.Map.name
             if (!civilizationStats[civilizationName]) {
                 civilizationStats[civilizationName] = {
                     name: civilizationName,
@@ -78,12 +88,24 @@ class PlayerService {
                     wins: 0,
                 };
             }
+            if (!mapsStats[mapName]){
+                mapsStats[mapName] = {
+                    name: mapName,
+                    icon: game.Game.Map.icon,
+                    games: 0,
+                    wins: 0,
+                }
+            }
 
             civilizationStats[civilizationName].games++;
-            if (game.Game.isWin)
+            mapsStats[mapName].games++;
+            if (game.Game.isWin){
                 civilizationStats[civilizationName].wins++;
+                mapsStats[mapName].wins++;
+            }
         }
         const civilizationArray = (Object.values(civilizationStats));
+        const mapsArray = (Object.values(mapsStats));
 
         for (const civilization of civilizationArray) {
             civilization.winsPercent = Math.round((civilization.wins / civilization.games) * 100)
@@ -93,7 +115,8 @@ class PlayerService {
         return {
             player,
             gameHistory,
-            civilizationArray
+            civilizationArray,
+            mapsArray
         }
     }
 

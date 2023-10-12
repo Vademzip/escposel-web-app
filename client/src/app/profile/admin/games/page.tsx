@@ -10,7 +10,7 @@ import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
 const Games = () => {
 
   const client = useQueryClient()
-  const {data, isFetching} = useQuery<IGameResponse>(['games'], () => GameService.getGames(),   {
+  const {data, isFetching} = useQuery<IGameResponse>(['games'], () => GameService.getGames('1',10),   {
   })
   const {mutate: deleteGame} = useMutation(GameService.deleteGame, {
     onSuccess: () => {
